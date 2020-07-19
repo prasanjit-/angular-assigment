@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HackerRankService} from '../services/hacker-rank.service'
-import { getLocaleDateFormat } from '@angular/common';
+import { ChartDataSets, ChartOptions } from 'chart.js';
+import { Color, Label } from 'ng2-charts';
 interface voteData {
   id: number;
   vote: number;
@@ -21,15 +22,40 @@ export class HackerRankComponent implements OnInit {
   stories: any =[] ;
   hits: any =[] ;
   sessionStoryData: any;
+  
+  lineChartData: ChartDataSets[] = [
+    { data: [], label: 'Story Vote chart' },
+  ];
+
+  lineChartLabels: Label[] = [];
+  lineChartOptions = {
+    responsive: true,
+    hAxis: {
+      title: 'Time'
+    },
+    vAxis: {
+      title: 'Popularity'
+    },
+  };
+
+  lineChartColors: Color[] = [
+    {
+      borderColor: 'black',
+      //backgroundColor: 'rgba(255,255,0,0.28)',
+    },
+  ];
+
+  lineChartLegend = true;
+  lineChartPlugins = [];
+  lineChartType = 'line'
   constructor(private service : HackerRankService) {  
-    this.refreshStories();
+  
 
   }
-  ngOnInit() {
-   
+  ngOnInit() {   
     console.log(sessionStorage.getItem('sessionStoryData'));
     this.sessionStoryData = JSON.parse(sessionStorage.getItem("sessionStoryData")) || [];
-
+    this.refreshStories();
   }
   refreshStories() { 
       let currentDate = new Date();
@@ -37,12 +63,14 @@ export class HackerRankComponent implements OnInit {
           this.hits = data.hits;
           this.getDataFormat(this.hits);
           this.collectionSize =this.hits.length  ;
+         
       });
   }
   getDataFormat(data){
     let dataArr =[];
+    let linechartlab =[];
+    let linechartdata =[];
     data.map((item)=>{     
-     // console.log('item \n'+JSON.stringify(item))
       let filterStory = this.sessionStoryData.filter((itemSession)=>{
         return itemSession.id==item.objectID
       })
@@ -69,15 +97,19 @@ export class HackerRankComponent implements OnInit {
         flag:flag
       };
       dataArr.push(story);
+      linechartlab.push(item.objectID);
+      linechartdata.push(points);
+     
     });
     this.stories =dataArr;
+    this.lineChartLabels =linechartlab;
+    this.lineChartData[0].data = linechartdata;
+    //this.lineChartLabels.slice((this.page-1)*(this.pageSize),(this.page-1)*(this.pageSize)+this.pageSize);
   }
   upVote(id,vote,flag,str){  
-    //console.log('object id clickec  =='+id)
     var sessionData = this.sessionStoryData.find(function(e) {     
        return e.id == id; 
       });
-    console.log('sessionData'+sessionData);
     if (sessionData!==undefined) {
       if(str=='vote')
       sessionData.updatedVote += 1;
@@ -105,7 +137,8 @@ export class HackerRankComponent implements OnInit {
     sessionStorage.setItem('sessionStoryData', JSON.stringify(this.sessionStoryData));
   }
   getPage(pageData){
-    this.page =pageData
+    this.page =pageData;
+
   }
   
 }
