@@ -14,7 +14,7 @@
       {{ story.points }}
     </td>
     <td><img src="../../assets/triangle.png" style="width: 15px;cursor: pointer;" (click)="upVote(story.objectID,story.points,'false','vote')"></td>
-    <td>{{ story.title }} by <b>{{story.author}}</b> &nbsp;5 hours ago[ <b><a style="cursor:pointer" (click)="upVote(story.objectID,story.points,story.flag,'hide')">hide</a></b> ]</td>
+    <td>{{ story.title }} ( {{story.url}} ) by <b>{{story.author}}</b> &nbsp;{{story.time}} hours ago[ <b><a style="cursor:pointer" (click)="upVote(story.objectID,story.points,story.flag,'hide')">hide</a></b> ]</td>
   </tr>
   </tbody>
 </table>

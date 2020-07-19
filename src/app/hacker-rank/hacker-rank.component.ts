@@ -70,6 +70,8 @@ export class HackerRankComponent implements OnInit {
     let dataArr =[];
     let linechartlab =[];
     let linechartdata =[];
+    let today = Math.round((new Date()).getTime() / 1000);
+    
     data.map((item)=>{     
       let filterStory = this.sessionStoryData.filter((itemSession)=>{
         return itemSession.id==item.objectID
@@ -78,6 +80,20 @@ export class HackerRankComponent implements OnInit {
       let story;
       let points;
       let flag;
+      let created_at = item.created_at;
+      let create_at_time = item.created_at_i;
+      let diffInSeconds = Math.abs(today - create_at_time) / 1000;
+      let hours = Math.ceil(diffInSeconds / 60 / 60 % 24);
+   
+      let newurl ;
+      if(item.url!==null){
+        const ulrarr = item.url.split('/');   
+        if(length>=0){
+          newurl = ulrarr[2];
+        } 
+      } else {
+        newurl='';
+      }
       if(filterStory.length>0){
         points =filterStory[0].updatedVote;   
         flag =filterStory[0].flag;         
@@ -94,7 +110,9 @@ export class HackerRankComponent implements OnInit {
         points:points,
         title:item.title,
         author: item.author,
-        flag:flag
+        flag:flag,
+        time:hours,
+        url:newurl
       };
       dataArr.push(story);
       linechartlab.push(item.objectID);
