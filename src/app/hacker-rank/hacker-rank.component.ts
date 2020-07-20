@@ -66,6 +66,7 @@ export class HackerRankComponent implements OnInit {
          
       });
   }
+  
   getDataFormat(data){
     let dataArr =[];
     let linechartlab =[];
