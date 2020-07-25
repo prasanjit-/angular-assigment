@@ -5,4 +5,4 @@ git init;
 git config user.name "prasanjit-" && git config user.email "mailprasanjit@gmail.com";
 git add .;
 git commit -m "github page code"
-git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:gh-pages > /dev/null 2>&1
+git push --force --quiet "https://${GITHUB_TOKEN}@${GH_REF}" master:gh-pages > /dev/null 2>&1
