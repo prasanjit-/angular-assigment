@@ -13,6 +13,7 @@ install:
   - npm install
 
 script:
+  - npm run test-headless
   - npm run-script build
   - cd dist/angular-sapient
   - ls
