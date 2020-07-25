@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "clean": "rm -rf node_modules/ && rm -f ./package-lock.json && npm cache clean -f",
-    "start": " ng serve",
+    "start": "ng serve",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
