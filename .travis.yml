@@ -1,12 +1,24 @@
+dist: xenial
+sudo: false
+
 language: node_js
 node_js:
-  - "stable"
+  - "10"
+
+cache:
+  directories:
+     - ./node_modules
+
+install:
+  - npm install
+
 script:
-  - npm run build
+  - npm run-script build
+
 deploy:
   provider: pages
   skip_cleanup: true
-  github_token: $github_token
-  local_dir: build
+  github_token: $GITHUB_TOKEN
+  local_dir: dist/angular-github-pages-travis
   on:
     branch: master
