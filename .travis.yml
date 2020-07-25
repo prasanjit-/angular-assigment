@@ -13,8 +13,8 @@ install:
   - npm install
 
 script:
-  - ls
   - npm run-script build
+  - ls
   - cd dist
   - cp index.html 404.html
 
