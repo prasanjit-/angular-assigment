@@ -13,14 +13,15 @@ install:
   - npm install
 
 script:
+  - ls
   - npm run-script build
-  - cd dist/angular-assigment
+  - cd dist
   - cp index.html 404.html
 
 deploy:
   provider: pages
   skip_cleanup: true
   github_token: $GH_TOKEN
-  local_dir: dist/angular-assigment
+  local_dir: dist
   on:
     branch: master
