@@ -1,24 +1,16 @@
-dist: xenial
-sudo: false
-
 language: node_js
 node_js:
-  - "10"
-
-cache:
-  directories:
-     - ./node_modules
-
-install:
-  - npm install
-
-script:
-  - npm run-script build
-
+- '6'
+before_install:
+- npm install -g @angular/cli
+install: npm install
+branches:
+  only:
+  - master
+after_script:
+- chmod +x publish-gh-pages.sh && ./publish-gh-pages.sh
 deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN
-  local_dir: dist/angular-assigment
-  on:
-    branch: master
+  provider: heroku
+  api_key:
+    secure: NZ1BffxIfzMS6cTcpHemm/I82lqoKGP5KRr9hC4jDJ8KdbRYDRc9GBou70FmxO1XgdF0IK7yf+QE7EnyXgapuYF68fhEkxgeJZ6FNxYgpaCoobd8ciI+/whVHNGKvpZHDvObhykGAYq7ZlYSkXD9KRbfuLxDo+rC2iQTisuYQ5Qc+hMuSPQGLGhXq9CLHiQC5HAiArTCTl/ipJRcwjkM5cw2wfHZb+OpG0kV7tFAme5g5gZl87md5e7D3zVOWZgzbKO5qWC82dQt74mHqFqdot4YiTh8L+xBwL1xjFIrdaISwFfT+xoTZh85K9JuOURU6fuBEhZqrLGKUYgylCgpFRJlIo4CZTMuNXuJbIQo4Kkr09raQNhe8mmGJbfchTwWJVZyIz0AP5K5+lsibUyz+Pr1E2j7lDTM0D0inOrX5vxE6W0hKQxesWTiAi1p+MHnm5B+O1ELLH4YSU1gGVy70b1Fl6nfkTHwNT/NqAqJNI+tMPAJuy7/EA39GQSuVq+G6OyXJU9hju/42agKJ68U3WSWR7PpoWRtjjqp3EdmfaN/5+AHyMfZSDomic7UISo0COv6xIK4aXTJNh/e/CcThPeExauuGY4fy/UbiN0A9LCfEgkL2jWoPjMsxWZeY8EJd7eHWJbsfyFo486hFAWWW9Giz38YymYzoU7G1f0KhNE=
+  app: angular-assigment
