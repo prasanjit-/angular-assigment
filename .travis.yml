@@ -16,6 +16,7 @@ script:
   - npm run-script build
   - ls
   - cd dist
+  - ls
   - cp index.html 404.html
 
 deploy:
