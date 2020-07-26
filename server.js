@@ -6,8 +6,8 @@ const cors = require('cors');
 const app = express();
 
 
-
-app.use(cors(corsOptions));
+app.use(cors());
+//app.use(cors(corsOptions));
 /////////////////////////////
 // Run the app by serving the static files
 // in the dist directory
