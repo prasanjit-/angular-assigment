@@ -45,6 +45,7 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
+              "baseHref": "https://sushma1507.github.io/angular-assigment/",
               "budgets": [
                 {
                   "type": "initial",

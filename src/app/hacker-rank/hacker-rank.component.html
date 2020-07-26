@@ -1,4 +1,6 @@
-<table class="table table-striped table-cls responsive">
+<div class="container">
+  <div class="row">
+<table class="table table-striped table-bordered table-cls responsive">
   <thead class="table-header">
   <tr>
     <th scope="col"> Comments</th>
@@ -8,19 +10,19 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let story of stories | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize" [hidden]="story.flag">
-    <th scope="row">{{ story.num_comments }}</th>
-    <td>
+  <tr *ngFor="let story of stories" [hidden]="story.flag">
+    <th >{{ story.num_comments }}</th>
+    <td >
       {{ story.points }}
     </td>
-    <td><img src="../../assets/triangle.png" style="width: 15px;cursor: pointer;" (click)="upVote(story.objectID,story.points,'false','vote')"></td>
-    <td>{{ story.title }} ( {{story.url}} ) by <b>{{story.author}}</b> &nbsp;{{story.time}} hours ago[ <b><a style="cursor:pointer" (click)="upVote(story.objectID,story.points,story.flag,'hide')">hide</a></b> ]</td>
+    <td><i class="fa fa-sort-asc up-arrow" (click)="upVote(story.objectID,story.points,'false','vote')"></i>      </td>
+    <td scope="col-6">"{{ story.title }} (<a  [attr.href]="'//'+story.url" target="_blank" rel="noopener noreferrer" [title]="story.url"><span class="font-cls">{{story.url}}</span></a>) <span class="font-cls">by <b>{{story.author}}</b> &nbsp;{{story.time}} [ <b><a style="cursor:pointer" (click)="upVote(story.objectID,story.points,story.flag,'hide')">hide</a></b> </span>]</td>
   </tr>
   </tbody>
 </table>
 
 <div class="d-flex justify-content-between p-2">
-  <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize" (pageChange)="getPage($event)">
+  <ngb-pagination size="sm" [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize" (pageChange)="getPage($event)">
   
     <ng-template ngbPaginationPrevious>Prev</ng-template>
     <ng-template ngbPaginationNext>Next</ng-template> 
@@ -29,6 +31,10 @@
 
 
 </div>
+</div>
+</div>
+<div class="container">
+
 <div class="chart-wrapper">
     <canvas baseChart 
         [datasets]="lineChartData" 
@@ -39,4 +45,6 @@
         [chartType]="lineChartType" 
         [plugins]="lineChartPlugins">
     </canvas>
+</div>
+
 </div>

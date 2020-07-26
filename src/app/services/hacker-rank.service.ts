@@ -17,9 +17,11 @@ export class HackerRankService {
   constructor(
     private http: HttpClient ) { }
 
-    getStories(): Observable<any> {
-           //      return this.http.get<any>(this.hackerUrl+'v1/search_by_date?tags=story&page='+page+'&hitsPerPage='+pageSize,this.hhtpOptions)
-
-     return this.http.get<any>(this.hackerUrl+'v1/search_by_date?tags=story',this.hhtpOptions)
+    getStories(page): Observable<any> {
+     let pageNo:number=0;
+     if(page!=0){
+       pageNo =page-1;
+     }  
+     return this.http.get<any>(this.hackerUrl+'v1/search?tags=front_page&page='+pageNo,this.hhtpOptions)
     }
 }

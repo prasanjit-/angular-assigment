@@ -3,5 +3,15 @@
 }
 .table-header{
     color: #f3eceb;
-    background-color: #ff7b00;
+    background-color: #e8702a;
+}
+.font-cls{
+font-size:12px
+}
+.up-arrow {
+    cursor: pointer;
+    opacity: .5;
+}
+.text-center{
+    text-align: center;
 }
