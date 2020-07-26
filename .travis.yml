@@ -21,7 +21,7 @@ script:
 deploy:
   provider: heroku
   api_key:
-    secure: bc14b625-e6e7-47db-a767-4850235c9401
+    secure: "alg7Tex+RU08UzcptCvpC26vfxwyPFuKCk4CXDdM6Y7GJiwBVS3GDYgpfbVb1MJnnFfV8W5odPjmAIf+B+JXiJAxwnzVS8UtegBIP0+nHC1hRgSC0CRmDts8a8i5X5fc8jsl3r1QleLc7yFD4Ulmh5KYzJF9OcJLQ0LKb9B/W4KX9uDc7PNx0A+hpMTPsywWlREhvlmQx6uw0UOyR8r4apHfG8wI2UymXLzrBmSRaPo63flrK70VOAw+iZNuNblXgjdQEgTQ8UjB907EiAir6GyF1xOqpNA+q03mPHd/S+Uxa8ZBIk5HoUSjeaqVIMsNc5loQm9LpdExnXJvTRjwpEGgZSXsg0JBmMeT+LCeR5op63ezUUOmrtCfiTW6wXqLQjilTIGvPIpTDeJmV63e6csujyn3AaM2k45w36zbGyx57y0tF7+p4NSNosoUY7D5a9jd3fBrx2/8aPkNcFABr2tPTcF7o2ApO4/Y3ylS+xdUi9WtzpqRvW319Of1A7FBWCjTIrXkDuniT+gg2efoczRa+9R2YyE1l1g9pG9PZXIIhr26k98NV/C2A9TkQqGcJbqBhqDueeMWQJF4Or3pnnjPvSjlnQUQU3ZPudvDgF92xYwj5zG3zuU23i904SZ9zmyPXJfY4jDJ/3pO7svEa34k9OtWsbKlBYZ8H0AJh1M="
   app: angular-sapient
   skip_cleanup: true
   github_token: $GH_TOKEN
