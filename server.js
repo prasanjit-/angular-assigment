@@ -2,6 +2,8 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const cors = require('cors');
+
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
@@ -29,7 +31,7 @@ app.use(express.static(__dirname + '/dist/angular-sapient'));
 
 // For all GET requests, send back index.html
 // so that PathLocationStrategy can be used
-app.get('/*', function(req, res) {
+app.get('/*', cors(), function(req, res, next) {
     res.sendFile(path.join(__dirname + '/dist/angular-sapient/index.html'));
   });
   
