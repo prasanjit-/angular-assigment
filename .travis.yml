@@ -23,8 +23,6 @@ deploy:
   api_key:
     secure: $HEROKU_KEY_API
   app: angular-sapient
-  skip_cleanup: true
-  github_token: $GH_TOKEN
   local_dir: dist/angular-sapient
   on:
     branch: master
