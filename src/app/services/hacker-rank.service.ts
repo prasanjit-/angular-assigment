@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 })
 export class HackerRankService {
 
-  hackerUrl = "http://hn.algolia.com/api/";
+  hackerUrl = "https://hn.algolia.com/api/";
   hhtpOptions ={
     headers :new HttpHeaders(
       {'Content-Type': 'application-json'
