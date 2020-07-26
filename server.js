@@ -2,25 +2,6 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-const cors = require('cors');
-
-
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  next();
-});
-
-app.all('*', function(req, res, next){
-    origin = req.get('Origin') || '*';
-    res.set('Access-Control-Allow-Origin', origin);
-    res.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-    res.set('Access-Control-Expose-Headers', 'Content-Length');
-    res.set('Access-Control-Allow-Credentials', 'true');
-    res.set('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type'); // add the list of headers your site allows.
-if ('OPTIONS' == req.method) return res.send(200);
-    next();
-});
-
 
 // Run the app by serving the static files
 // in the dist directory
@@ -29,9 +10,15 @@ app.use(express.static(__dirname + '/dist/angular-sapient'));
 // Heroku port
 
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 // For all GET requests, send back index.html
 // so that PathLocationStrategy can be used
-app.get('/*', cors(), function(req, res, next) {
+app.get('/*', function(req, res) {
     res.sendFile(path.join(__dirname + '/dist/angular-sapient/index.html'));
   });
   
