@@ -1,26 +1,21 @@
 dist: xenial
-
 language: node_js
 node_js:
-  - "stable"
-
+- stable
 cache:
   directories:
-     - ./node_modules
-
+  - "./node_modules"
 install:
-  - npm install
-
+- npm install
 script:
-  - npm run-script build
-  - cd dist/angular-sapient
-  - ls
-  - cp index.html 404.html
-
+- npm run-script build
+- cd dist/angular-sapient
+- ls
+- cp index.html 404.html
 deploy:
   provider: heroku
   api_key:
-    secure: $HEROKU_KEY_API
+    secure: OdKZLeKMTleoiaaEcazxJMEY2Q7e8QCGA4+S9SA1/1sJkj/dNES5eqW103viuwKYiQqo8XXkqZ2L6wu7nuz5/gIMupQEzBb3tkshTmJJFeapWUTCFM5InYf3EPFkzKYGQqf+lii2sZueMYKQwLXVgHXnckqgU071hLqbFNhonI/eOqFkTLnqW1apIxs5PIdazgf+raqRYKJy5J54Vv/XHtNeOHFDAtM+No/VXLadsSlwr/gtUdzZc0Dg8Yj4zZBTJDD974iKejmKiI8NktYe499LSCu9tcGUAWhExCcnezbXG4vAJqvSgSQ7Nj0J+KyR6sTcEFuO51T3q5swq93c200Zoq3Oe+e83K+75vgUqnDEDnF5YCJqmYOzomqPQBtvDkRTcTbWfs3nIngk4nKv697MhuwndJoqKp9stKRGH9vVFWhMYFft9Yfl5cxVQuKGM/NxHB7lO78EOY41yvgWOzJODlrmFYVAfxwxVJYXwKDIar/7S8+EkBidhwnkOyaWQhLwbtFD24qMGHqpEZCfpnQ0955h9p13HVd0mP4+fBWcMrp9nJ+2ht0NUCDadCuqUAGig7TwJZ3nAGasw4uZhPZiwLLcNEKylAW6kBqQk/ztuF1ylHMnMXdquon+8vt8JLi3R95yje7IBRiYwdTXeMovp3PbFkdJHkNyR7Yzk04=
   app: angular-sapient
   on:
     branch: master
