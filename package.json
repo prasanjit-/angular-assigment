@@ -3,21 +3,23 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "clean": "rm -rf node_modules/ && rm -f ./package-lock.json && npm cache clean -f",
-    "e2e": "ng e2e",
-    "build": "ng build",
-    "postinstall": "ng build --aot --prod"
+    "start": " ng serve",
+    "build": "ng build --prod",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
   },
-    "engines": {
+     "engines": {
     "node": "12.8.3",
     "npm": "6.14.6"
-  },
+  }, 
+ 
   "private": true,
   "dependencies": {
-    "@angular/animations": "~8.2.14",
     "@angular-devkit/build-angular": "~0.803.21",
     "@angular/cli": "~8.3.21",
     "@angular/compiler-cli": "~8.2.14",
+    "@angular/animations": "~8.2.14",
     "@angular/common": "~8.2.14",
     "@angular/compiler": "~8.2.14",
     "@angular/core": "~8.2.14",
@@ -34,9 +36,6 @@
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.803.21",
-    "@angular/cli": "~8.3.21",
-    "@angular/compiler-cli": "~8.2.14",
     "@angular/language-service": "~8.2.14",
     "@types/node": "~8.9.4",
     "@types/jasmine": "~3.3.8",
