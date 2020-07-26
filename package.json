@@ -5,9 +5,9 @@
     "ng": "ng",
     "clean": "rm -rf node_modules/ && rm -f ./package-lock.json && npm cache clean -f",
     "e2e": "ng e2e",
-    "start": "node server.js",
+    "start": "ng serve",
     "build": "ng build",
-    "postinstall": "ng build --aot --prod"
+    "heroku-postbuild": "ng build --prod"
   },
   "private": true,
   "dependencies": {
