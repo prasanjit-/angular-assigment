@@ -1,5 +1,4 @@
 dist: xenial
-sudo: false
 
 language: node_js
 node_js:
@@ -23,6 +22,5 @@ deploy:
   api_key:
     secure: $HEROKU_KEY_API
   app: angular-sapient
-  local_dir: dist/angular-sapient
   on:
     branch: master
