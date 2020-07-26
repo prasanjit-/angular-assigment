@@ -5,7 +5,7 @@
     "ng": "ng",
     "clean": "rm -rf node_modules/ && rm -f ./package-lock.json && npm cache clean -f",
     "start": "ng serve",
-    "build": "ng build --prod --aot --base-href https://prasanjit-.github.io/angular-assigment/",
+    "build": "ng build --prod --aot",
     "e2e": "ng e2e"
   },
   "private": true,
