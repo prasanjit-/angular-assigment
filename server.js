@@ -5,20 +5,36 @@ const cors = require('cors');
 
 const app = express();
 
+app.use(cors(corsOptions));
 
-app.use(cors());
 
+// add this code
+const whitelist = ['http://localhost:3000',
+                   'https://angular-sapient.herokuapp.com',
+                   'http://angular-sapient.herokuapp.com',
+                   'https://angular-sapient.herokuapp.com:8080',
+                   'http://angular-sapient.herokuapp.com:8080',
+                   'https://angular-sapient.herokuapp.com:3000',
+                   'http://angular-sapient.herokuapp.com:3000'                                 
+                  ]; // list of allow domain
 
-app.options('*', (req, res) => {
-  res.set('Access-Control-Allow-Origin', '*');
-  res.send('ok');
-});
+const corsOptions = {
+    origin: function (origin, callback) {
+        if (!origin) {
+            return callback(null, true);
+        }
 
-app.use((req, res) => {
-  res.set('Access-Control-Allow-Origin', '*');
-});
+        if (whitelist.indexOf(origin) === -1) {
+            var msg = 'The CORS policy for this site does not ' +
+                'allow access from the specified Origin.';
+            return callback(new Error(msg), false);
+        }
+        return callback(null, true);
+    }
+}
 
-//app.use(cors(corsOptions));
+// end 
+
 /////////////////////////////
 // Run the app by serving the static files
 // in the dist directory
