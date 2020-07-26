@@ -7,6 +7,17 @@ const app = express();
 
 
 app.use(cors());
+
+
+app.options('*', (req, res) => {
+  res.set('Access-Control-Allow-Origin', '*');
+  res.send('ok');
+});
+
+app.use((req, res) => {
+  res.set('Access-Control-Allow-Origin', '*');
+});
+
 //app.use(cors(corsOptions));
 /////////////////////////////
 // Run the app by serving the static files
