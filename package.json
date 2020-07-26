@@ -7,7 +7,7 @@
     "e2e": "ng e2e",
     "start": "node server.js",
     "build": "ng build",
-    "postinstall": "ng build --aot --prod",
+    "postinstall": "ng build --aot --prod"
   },
   "private": true,
   "dependencies": {
