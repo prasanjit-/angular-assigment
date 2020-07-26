@@ -2,13 +2,15 @@
   "name": "angular-sapient",
   "version": "0.0.0",
   "scripts": {
-    "ng-high-memory": "node --max_old_space_size=8000 ./node_modules/@angular/cli/bin/ng build --configuration=prod",
     "ng": "ng",
     "clean": "rm -rf node_modules/ && rm -f ./package-lock.json && npm cache clean -f",
     "e2e": "ng e2e",
-    "start": "ng serve",
     "build": "ng build",
-    "prod": "npm run ng-high-memory -- build --prod"
+    "postinstall": "ng build --aot -prod"
+  },
+    "engines": {
+    "node": "12.8.3",
+    "npm": "6.14.6"
   },
   "private": true,
   "dependencies": {
