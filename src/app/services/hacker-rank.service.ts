@@ -6,11 +6,11 @@ import { Observable } from 'rxjs';
 })
 export class HackerRankService {
 
-  hackerUrl = "https://hn.algolia.com/api/";
+  hackerUrl = "https://cors-anywhere.herokuapp.com/https://hn.algolia.com/api/";
   hhtpOptions ={
     headers :new HttpHeaders(
-      {'Content-Type': 'application-json'
-
+      {'Content-Type': 'application-json',
+    'X-Requested-With': 'XMLHttpRequest'
     }
       )
   };
