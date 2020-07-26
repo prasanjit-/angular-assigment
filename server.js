@@ -1,28 +1,52 @@
 // server.js
 const express = require('express');
-const app = express();
 const path = require('path');
+const cors = require('cors');
 
+const app = express();
+
+
+// add this code
+const whitelist = ['http://localhost:3000']; // list of allow domain
+
+const corsOptions = {
+    origin: function (origin, callback) {
+        if (!origin) {
+            return callback(null, true);
+        }
+
+        if (whitelist.indexOf(origin) === -1) {
+            var msg = 'The CORS policy for this site does not ' +
+                'allow access from the specified Origin.';
+            return callback(new Error(msg), false);
+        }
+        return callback(null, true);
+    }
+}
+
+// end 
+
+app.use(cors(corsOptions));
+/////////////////////////////
 // Run the app by serving the static files
 // in the dist directory
-app.use(express.static(__dirname + '/dist/angular-sapient'));
+//app.use(express.static(__dirname + '/dist/angular-sapient'));
 // Start the app by listening on the default
 // Heroku port
 
-
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
-
 // For all GET requests, send back index.html
 // so that PathLocationStrategy can be used
-app.get('/*', function(req, res) {
-    res.sendFile(path.join(__dirname + '/dist/angular-sapient/index.html'));
-  });
-  
+//app.get('/*', function(req, res) {
+//    res.sendFile(path.join(__dirname + '/dist/angular-sapient/index.html'));
+ // });
+//////////////////////////////  
+app.use(express.static('./dist/angular-sapient'));
 
+app.get('/',function(req,res){
+    res.sendFile(path.join(__dirname+'/dist/angular-sapient/index.html'));
+});
+
+//app.listen(process.env.PORT || 8080);
 
 var server_port = process.env.PORT || 8080;
 var server_host = '0.0.0.0';
