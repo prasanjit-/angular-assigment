@@ -19,7 +19,10 @@ script:
   - cp index.html 404.html
 
 deploy:
-  provider: pages
+  provider: heroku
+  api_key:
+    secure: bc14b625-e6e7-47db-a767-4850235c9401
+  app: angular-sapient
   skip_cleanup: true
   github_token: $GH_TOKEN
   local_dir: dist/angular-sapient
