@@ -4,9 +4,10 @@
   "scripts": {
     "ng": "ng",
     "clean": "rm -rf node_modules/ && rm -f ./package-lock.json && npm cache clean -f",
-    "start": "ng serve",
-    "build": "ng build --prod --aot",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "start": "node server.js",
+    "build": "ng build",
+    "postinstall": "ng build --aot --prod",
   },
   "private": true,
   "dependencies": {
