@@ -5,7 +5,7 @@ const cors = require('cors');
 
 const app = express();
 
-app.use(cors(corsOptions));
+
 
 
 // add this code
@@ -34,6 +34,9 @@ const corsOptions = {
 }
 
 // end 
+
+
+app.use(cors(corsOptions));
 
 /////////////////////////////
 // Run the app by serving the static files
