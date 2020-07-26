@@ -5,7 +5,7 @@ const cors = require('cors');
 
 const app = express();
 
-
+app.options('*', cors());
 
 
 // add this code
