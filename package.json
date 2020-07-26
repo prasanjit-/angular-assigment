@@ -6,7 +6,7 @@
     "clean": "rm -rf node_modules/ && rm -f ./package-lock.json && npm cache clean -f",
     "e2e": "ng e2e",
     "build": "ng build",
-    "postinstall": "ng build --aot -prod"
+    "postinstall": "ng build --aot --prod"
   },
     "engines": {
     "node": "12.8.3",
