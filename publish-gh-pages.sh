@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-ng build -bh angular-assigment --aot -prod 
+ng build -bh angular-assigment --aot --prod 
 cd dist/;
 git init;
 git config user.name "prasanjit-" && git config user.email "mailprasanjit@gmail.com";
