@@ -10,12 +10,12 @@ app.options('*', cors());
 
 // add this code
 const whitelist = ['http://localhost:3000',
-                   'https://angular-sapient.herokuapp.com',
-                   'http://angular-sapient.herokuapp.com',
-                   'https://angular-sapient.herokuapp.com:8080',
-                   'http://angular-sapient.herokuapp.com:8080',
-                   'https://angular-sapient.herokuapp.com:3000',
-                   'http://angular-sapient.herokuapp.com:3000'                                 
+                   'https://angular-sapient-demo.herokuapp.com',
+                   'http://angular-sapient-demo.herokuapp.com',
+                   'https://angular-sapient-demo.herokuapp.com:8080',
+                   'http://angular-sapient-demo.herokuapp.com:8080',
+                   'https://angular-sapient-demo.herokuapp.com:3000',
+                   'http://angular-sapient-demo.herokuapp.com:3000'                               
                   ]; // list of allow domain
 
 const corsOptions = {
